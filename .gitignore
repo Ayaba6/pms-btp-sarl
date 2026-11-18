@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Photos originales (lourdes) — versions web dans public/images/realisations
+photos-originales/

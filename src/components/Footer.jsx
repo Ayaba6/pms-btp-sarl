@@ -1,93 +1,87 @@
-import React from 'react';
-import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import logoPms from '../assets/logo-pms.png';
+import { contact, services } from '../data/site';
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300 pt-16 pb-8 px-4 sm:px-8 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-        
-        {/* Colonne 1 : Identité avec Logo */}
-        <div className="space-y-4">
-          <div className="bg-white/90 p-2.5 rounded-xl w-fit shadow-sm">
-            <img 
-              src={logoPms} 
-              alt="PMS - Prestige Multi Services BTP Sarl" 
-              className="h-10 w-auto object-contain" 
-            />
+    <footer className="relative bg-ink text-white/70 grain overflow-hidden">
+      <div className="container-x pt-20 pb-10 relative">
+        {/* Grande accroche */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-16 border-b border-white/10">
+          <h2 className="display-xl text-white text-4xl sm:text-5xl lg:text-6xl max-w-3xl">
+            Un projet en tête&nbsp;? <span className="text-white/40">Construisons-le ensemble.</span>
+          </h2>
+          <Link to="/contact" className="btn-primary shrink-0">
+            Parlons de votre projet <ArrowUpRight size={18} />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 py-14">
+          <div className="lg:col-span-4 space-y-5">
+            <div className="bg-white rounded-md px-3 py-2 w-fit">
+              <img src={logoPms} alt="PMS — Prestige Multi Services BTP Sarl" className="h-9 w-auto" />
+            </div>
+            <p className="text-sm leading-relaxed max-w-xs">
+              Prestige Multi Services – BTP Sarl : bâtiment, travaux publics, forages et services industriels.
+            </p>
           </div>
-          <p className="text-slate-400 text-sm leading-relaxed">
-            Votre partenaire de confiance pour le BTP, le forage, la maintenance industrielle, les fournitures et le commerce général.
-          </p>
+
+          <div className="lg:col-span-2">
+            <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-5">Navigation</h4>
+            <ul className="space-y-2.5 text-sm">
+              {[
+                ['/', 'Accueil'],
+                ['/apropos', 'À propos'],
+                ['/services', 'Expertises'],
+                ['/realisations', 'Réalisations'],
+                ['/contact', 'Contact'],
+              ].map(([to, label]) => (
+                <li key={to}>
+                  <Link to={to} className="hover:text-white transition-colors">{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-3">
+            <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-5">Expertises</h4>
+            <ul className="space-y-2.5 text-sm">
+              {services.map((s) => (
+                <li key={s.key}>
+                  <Link to={`/services#${s.key}`} className="hover:text-white transition-colors">{s.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-3">
+            <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-5">Contact</h4>
+            <ul className="space-y-4 text-sm">
+              <li className="flex gap-3">
+                <Phone size={16} className="text-pmsRed shrink-0 mt-0.5" />
+                <span>
+                  {contact.phones.map((p) => (
+                    <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="block hover:text-white">{p}</a>
+                  ))}
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <Mail size={16} className="text-pmsRed shrink-0 mt-0.5" />
+                <a href={`mailto:${contact.email}`} className="hover:text-white break-all">{contact.email}</a>
+              </li>
+              <li className="flex gap-3">
+                <MapPin size={16} className="text-pmsRed shrink-0 mt-0.5" />
+                <span>{contact.postal}<br />{contact.city}</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        {/* Colonne 2 : Liens rapides */}
-        <div>
-          <h4 className="text-white font-bold text-base mb-4 border-l-2 border-pmsBlue pl-3">
-            Navigation
-          </h4>
-          <ul className="space-y-2.5 text-sm">
-            <li>
-              <a href="#accueil" className="hover:text-pmsBlue transition-colors flex items-center gap-2">
-                <ArrowRight size={14} className="text-pmsBlue" /> Accueil
-              </a>
-            </li>
-            <li>
-              <a href="#apropos" className="hover:text-pmsBlue transition-colors flex items-center gap-2">
-                <ArrowRight size={14} className="text-pmsBlue" /> À propos
-              </a>
-            </li>
-            <li>
-              <a href="#services" className="hover:text-pmsBlue transition-colors flex items-center gap-2">
-                <ArrowRight size={14} className="text-pmsBlue" /> Nos Services
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-pmsBlue transition-colors flex items-center gap-2">
-                <ArrowRight size={14} className="text-pmsBlue" /> Contactez-nous
-              </a>
-            </li>
-          </ul>
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/40">
+          <p>© {new Date().getFullYear()} PMS — Prestige Multi Services BTP Sarl. Tous droits réservés.</p>
+          <p>Bâtir avec rigueur, livrer avec fierté.</p>
         </div>
-
-        {/* Colonne 3 : Domaines d'activités */}
-        <div>
-          <h4 className="text-white font-bold text-base mb-4 border-l-2 border-pmsBlue pl-3">
-            Nos Activités
-          </h4>
-          <ul className="space-y-2 text-xs text-slate-400">
-            <li>• BTP & Constructions</li>
-            <li>• Forage Minier & Hydraulique</li>
-            <li>• Maintenance & Équipements Industriels</li>
-            <li>• Fournitures de Bureaux</li>
-            <li>• Transport & Logistique</li>
-            <li>• Commerce Général</li>
-          </ul>
-        </div>
-
-        {/* Colonne 4 : Coordonnées */}
-        <div>
-          <h4 className="text-white font-bold text-base mb-4 border-l-2 border-pmsBlue pl-3">
-            Coordonnées
-          </h4>
-          <ul className="space-y-3 text-sm text-slate-400">
-            <li className="flex items-start gap-2.5">
-              <Phone size={16} className="text-pmsBlue shrink-0 mt-1" />
-              <span>+226 70 12 97 97 / 76 21 72 71</span>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <Mail size={16} className="text-pmsBlue shrink-0" />
-              <span>esfsalgo@gmail.com</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      {/* Bas de page / Copyright */}
-      <div className="max-w-7xl mx-auto pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500 text-center sm:text-left">
-        <p>&copy; {new Date().getFullYear()} PMS - Prestige Multi Services BTP Sarl. Tous droits réservés.</p>
-        <p>Conçu pour des performances et une visibilité professionnelle optimales.</p>
       </div>
     </footer>
   );
