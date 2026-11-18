@@ -19,6 +19,7 @@ export const categories = [
   'Bâtiment',
   'Hydraulique',
   'Génie civil & aménagement',
+  'Industrie & transport',
 ];
 
 export const projects = [
@@ -130,6 +131,48 @@ export const projects = [
     cover: img('site-drone'),
     images: [img('site-drone'), img('terrain-sport'), img('annexe')],
   },
+  {
+    slug: 'maintenance-industrielle',
+    title: 'Maintenance & fournitures industrielles',
+    category: 'Industrie & transport',
+    status: 'Livré',
+    summary:
+      "Maintenance d'installations de concassage-criblage et de centrales à béton (convoyeurs, cribles, silos) et fourniture de pièces d'usure : bandes transporteuses, rouleaux, raclettes, colles et produits de garnissage.",
+    facts: ['Concassage & criblage', 'Convoyeurs & silos', "Pièces d'usure", 'Bandes transporteuses'],
+    cover: img('maintenance-concasseur'),
+    images: [
+      img('maintenance-concasseur'),
+      img('maintenance-convoyeurs'),
+      img('maintenance-criblage'),
+      img('maintenance-silo'),
+      img('maintenance-centrale'),
+      img('maintenance-convoyeurs-2'),
+      img('fournitures-bande'),
+      img('fournitures-rouleaux'),
+      img('fournitures-rouleau-impact'),
+      img('fournitures-raclettes'),
+      img('fournitures-colles'),
+      img('fournitures-redibak'),
+    ],
+  },
+  {
+    slug: 'transport-granulats',
+    title: 'Transport de matériaux & granulats',
+    category: 'Industrie & transport',
+    status: 'Livré',
+    summary:
+      "Acheminement de sable, gravier et granulats par camions-bennes et semi-remorques, du site d'extraction jusqu'au chantier.",
+    facts: ['Camions-bennes', 'Semi-remorques', 'Sable & gravier', 'Livraison sur chantier'],
+    cover: img('transport-benne'),
+    images: [
+      img('transport-benne'),
+      img('transport-semi'),
+      img('transport-camion'),
+      img('transport-chargement'),
+      img('transport-semi-2'),
+      img('granulats-stock'),
+    ],
+  },
 ];
 
 export const services = [
@@ -140,6 +183,8 @@ export const services = [
     long:
       "Bâtiments scolaires, résidentiels, administratifs, cultuels ou industriels : nous prenons en charge le gros œuvre comme le second œuvre, de l'implantation à la remise des clés.",
     image: img('ecole-facade'),
+    // 4 miniatures, une par activité listée : gros œuvre, structure béton armé, finitions, ouvrage livré
+    gallery: ['mosquee-facade', 'mosquee-interieur', 'villa-plafond', 'villa-escalier'].map(img),
     points: ['Gros œuvre & béton armé', 'Second œuvre & finitions', 'Voiries & réseaux divers', 'Réhabilitation'],
   },
   {
@@ -149,16 +194,25 @@ export const services = [
     long:
       "Nous réalisons des forages pour l'eau potable, l'irrigation et les activités minières, et les équipons de systèmes de pompage solaire et de réservoirs surélevés.",
     image: img('forage-chateau'),
+    gallery: ['forage-borne', 'forage-chateau-drone', 'forage-reservoir', 'forage-site'].map(img),
     points: ["Forages d'eau potable", "Châteaux d'eau", 'Pompage solaire', 'Forage minier'],
   },
   {
     key: 'amenagement',
     title: 'Génie civil & Aménagement',
-    short: 'Clôtures, portails, terrains, aménagements paysagers.',
+    short: 'Périmètres maraîchers irrigués, barrages, bas-fonds, clôtures et terrains.',
     long:
-      "Murs de clôture, portails, guérites, terrains de sport, cours paysagères : nous structurons et sécurisons vos domaines avec des ouvrages durables.",
-    image: img('portail'),
-    points: ['Clôtures & portails', 'Terrassement', 'Terrains de sport', 'Espaces paysagers'],
+      "Aménagements hydro-agricoles — périmètres maraîchers irrigués, barrages et bas-fonds — mais aussi murs de clôture, portails, terrains de sport et cours paysagères : nous structurons vos sites avec des ouvrages durables.",
+    image: img('amenagement-barrage'),
+    gallery: ['perimetre-maraicher', 'portail', 'terrain-sport', 'ecole-jardin'].map(img),
+    points: [
+      'Périmètres maraîchers irrigués',
+      'Aménagement de barrages',
+      'Aménagement de bas-fonds',
+      'Clôtures & portails',
+      'Terrassement',
+      'Terrains de sport & espaces paysagers',
+    ],
   },
   {
     key: 'industrie',
@@ -166,17 +220,24 @@ export const services = [
     short: 'Maintenance préventive et corrective, fourniture d’équipements.',
     long:
       "Interventions techniques sur équipements et installations industrielles, et fourniture de matériel adapté à vos sites de production ou d'exploitation.",
-    image: img('hangar-facade'),
-    points: ['Maintenance préventive', 'Maintenance corrective', "Fourniture d'équipements"],
+    image: img('maintenance-concasseur'),
+    gallery: ['maintenance-convoyeurs', 'maintenance-silo', 'fournitures-rouleaux', 'fournitures-colles'].map(img),
+    points: [
+      'Concassage, criblage & convoyeurs',
+      'Silos & centrales à béton',
+      'Bandes transporteuses & rouleaux',
+      "Pièces d'usure, colles & garnissage",
+    ],
   },
   {
     key: 'transport',
     title: 'Transport & Logistique',
     short: 'Acheminement sécurisé de matériaux, marchandises et engins.',
     long:
-      "Nous assurons le transport de vos matériaux de construction, marchandises et équipements, dans les délais et en toute sécurité.",
-    image: null,
-    points: ['Matériaux de construction', 'Marchandises', 'Équipements'],
+      "Avec nos camions-bennes et semi-remorques, nous transportons sable, gravier, granulats, marchandises et équipements, dans les délais et en toute sécurité.",
+    image: img('transport-benne'),
+    gallery: ['transport-semi', 'transport-camion', 'transport-chargement', 'granulats-stock'].map(img),
+    points: ['Sable, gravier & granulats', 'Camions-bennes & semi-remorques', 'Marchandises & équipements'],
   },
   {
     key: 'commerce',
