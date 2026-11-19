@@ -16,9 +16,9 @@ export const contact = {
 
 export const categories = [
   'Tous',
-  'Bâtiment',
+  'Bâtiment & génie civil',
   'Hydraulique',
-  'Génie civil & aménagement',
+  'Aménagements, Eaux & assainissement',
   'Industrie & transport',
 ];
 
@@ -26,7 +26,7 @@ export const projects = [
   {
     slug: 'complexe-educatif',
     title: 'Complexe éducatif R+2',
-    category: 'Bâtiment',
+    category: 'Bâtiment & génie civil',
     status: 'Livré',
     summary:
       "Construction clé en main d'un bâtiment d'enseignement à trois niveaux : salles de classe, dortoirs, réfectoire, galeries couvertes et aménagement paysager de la cour.",
@@ -50,7 +50,7 @@ export const projects = [
   {
     slug: 'villa-contemporaine',
     title: 'Villa contemporaine R+2',
-    category: 'Bâtiment',
+    category: 'Bâtiment & génie civil',
     status: 'Livré',
     summary:
       "Résidence urbaine sur trois niveaux : façades à parements pierre et brique, escalier hélicoïdal extérieur, terrasse équipée de panneaux solaires et château d'eau autonome.",
@@ -72,7 +72,7 @@ export const projects = [
   {
     slug: 'mosquee',
     title: 'Mosquée & coupole',
-    category: 'Bâtiment',
+    category: 'Bâtiment & génie civil',
     status: 'Chantier en cours',
     summary:
       "Gros œuvre d'un édifice cultuel : structure en béton armé, coupole centrale, quatre minarets et mezzanine intérieure. Chantier suivi et mené par nos équipes.",
@@ -101,7 +101,7 @@ export const projects = [
   {
     slug: 'cloture-portail',
     title: 'Clôture, portail & guérite',
-    category: 'Génie civil & aménagement',
+    category: 'Bâtiment & génie civil',
     status: 'Livré',
     summary:
       "Sécurisation complète d'un domaine : mur de clôture, portail monumental à double vantail, éclairage solaire et poste de garde.",
@@ -112,7 +112,7 @@ export const projects = [
   {
     slug: 'entrepot',
     title: 'Entrepôt & bâtiment technique',
-    category: 'Génie civil & aménagement',
+    category: 'Bâtiment & génie civil',
     status: 'Livré',
     summary:
       "Construction d'un bâtiment de stockage avec couverture en bac acier, larges portes de chargement et locaux annexes.",
@@ -123,7 +123,7 @@ export const projects = [
   {
     slug: 'amenagements-exterieurs',
     title: 'Aménagements extérieurs & annexes',
-    category: 'Génie civil & aménagement',
+    category: 'Aménagements, Eaux & assainissement',
     status: 'Livré',
     summary:
       "Viabilisation d'un grand domaine : terrain de sport, place centrale, logements annexes et réseaux de circulation.",
@@ -161,8 +161,8 @@ export const projects = [
     category: 'Industrie & transport',
     status: 'Livré',
     summary:
-      "Acheminement de sable, gravier et granulats par camions-bennes et semi-remorques, du site d'extraction jusqu'au chantier.",
-    facts: ['Camions-bennes', 'Semi-remorques', 'Sable & gravier', 'Livraison sur chantier'],
+      "Acheminement de sable, gravier et granulats par camions-bennes articulés et monoblocs, du site d'extraction jusqu'au chantier.",
+    facts: ['Bennes articulées', 'Bennes monoblocs', 'Sable & gravier', 'Livraison sur chantier'],
     cover: img('transport-benne'),
     images: [
       img('transport-benne'),
@@ -178,14 +178,21 @@ export const projects = [
 export const services = [
   {
     key: 'btp',
-    title: 'Bâtiment & Travaux Publics',
-    short: 'Constructions neuves, réhabilitations, voiries et réseaux divers.',
+    title: 'Bâtiment, Génie Civil & Travaux Publics',
+    short: 'Constructions neuves, génie civil, clôtures, voiries et réseaux divers.',
     long:
-      "Bâtiments scolaires, résidentiels, administratifs, cultuels ou industriels : nous prenons en charge le gros œuvre comme le second œuvre, de l'implantation à la remise des clés.",
+      "Bâtiments scolaires, résidentiels, administratifs, cultuels ou industriels, ouvrages de génie civil, clôtures et portails : nous prenons en charge le gros œuvre comme le second œuvre, de l'implantation à la remise des clés.",
     image: img('ecole-facade'),
-    // 4 miniatures, une par activité listée : gros œuvre, structure béton armé, finitions, ouvrage livré
-    gallery: ['mosquee-facade', 'mosquee-interieur', 'villa-plafond', 'villa-escalier'].map(img),
-    points: ['Gros œuvre & béton armé', 'Second œuvre & finitions', 'Voiries & réseaux divers', 'Réhabilitation'],
+    // 4 miniatures, une par activité listée : gros œuvre, structure béton armé, finitions, clôtures & portails
+    gallery: ['mosquee-facade', 'mosquee-interieur', 'villa-plafond', 'portail'].map(img),
+    points: [
+      'Gros œuvre & béton armé',
+      'Second œuvre & finitions',
+      'Génie civil & terrassement',
+      'Clôtures & portails',
+      'Voiries & réseaux divers',
+      'Réhabilitation',
+    ],
   },
   {
     key: 'forage',
@@ -199,18 +206,18 @@ export const services = [
   },
   {
     key: 'amenagement',
-    title: 'Génie civil & Aménagement',
-    short: 'Périmètres maraîchers irrigués, barrages, bas-fonds, clôtures et terrains.',
+    title: 'Aménagements, Eaux & Assainissement',
+    short: 'Périmètres maraîchers irrigués, barrages, bas-fonds, eau et assainissement.',
     long:
-      "Aménagements hydro-agricoles — périmètres maraîchers irrigués, barrages et bas-fonds — mais aussi murs de clôture, portails, terrains de sport et cours paysagères : nous structurons vos sites avec des ouvrages durables.",
+      "Aménagements hydro-agricoles — périmètres maraîchers irrigués, barrages et bas-fonds —, adduction d'eau, assainissement et aménagement de sites : nous valorisons vos terres et vos espaces avec des ouvrages durables.",
     image: img('amenagement-barrage'),
-    gallery: ['perimetre-maraicher', 'portail', 'terrain-sport', 'ecole-jardin'].map(img),
+    gallery: ['perimetre-maraicher', 'site-drone', 'terrain-sport', 'ecole-jardin'].map(img),
     points: [
       'Périmètres maraîchers irrigués',
       'Aménagement de barrages',
       'Aménagement de bas-fonds',
-      'Clôtures & portails',
-      'Terrassement',
+      "Adduction d'eau potable",
+      'Assainissement & drainage',
       'Terrains de sport & espaces paysagers',
     ],
   },
@@ -234,10 +241,10 @@ export const services = [
     title: 'Transport & Logistique',
     short: 'Acheminement sécurisé de matériaux, marchandises et engins.',
     long:
-      "Avec nos camions-bennes et semi-remorques, nous transportons sable, gravier, granulats, marchandises et équipements, dans les délais et en toute sécurité.",
+      "Avec nos camions-bennes articulés et monoblocs, nous transportons sable, gravier, granulats, marchandises et équipements, dans les délais et en toute sécurité.",
     image: img('transport-benne'),
     gallery: ['transport-semi', 'transport-camion', 'transport-chargement', 'granulats-stock'].map(img),
-    points: ['Sable, gravier & granulats', 'Camions-bennes & semi-remorques', 'Marchandises & équipements'],
+    points: ['Sable, gravier & granulats', 'Camions-bennes articulés & monoblocs', 'Marchandises & équipements'],
   },
   {
     key: 'commerce',
